@@ -6,7 +6,7 @@
                 class="ph ph-x"></i></button>
         <!-- sidebar close btn -->
 
-        <a 
+        <a (click)="global.setRoute('')"
             class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
             <img src="assets/images/logo/logo.png" alt="Logo">
         </a>
@@ -14,18 +14,39 @@
         <div class="sidebar-menu-wrapper overflow-y-auto scroll-sm">
             <div class="p-20 pt-10">
                 <ul class="sidebar-menu">
-                    <li class="sidebar-menu__item">
-                        <a class="sidebar-menu__link">
+                    <li class="sidebar-menu__item" >
+                        <a class="sidebar-menu__link" (click)="global.setRoute('')">
                             <span class="icon"><i class="ph ph-users-three"></i></span>
                             <span class="text">INSTRUCCIONES</span>
                         </a>
-                    </li><!-- 
-                    <li class="sidebar-menu__item">
-                        <a href="assignment.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-clipboard-text"></i></span>
-                            <span class="text">Assignments</span>
+                    </li>
+                    <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
+                        <a (click)="global.setRoute('homedash')" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-house"></i></span>
+                            <span class="text">Inicio</span>
                         </a>
                     </li>
+                    <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
+                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-books"></i></span>
+                            <span class="text">Proyectos</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
+                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-bookmarks"></i></span>
+                            <span class="text">Servicios</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
+                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link">
+                            <span class="icon"><i class="ph ph-plus"></i></span>
+                            <span class="text">Recursos</span>
+                        </a>
+                    </li>
+
+                    <!-- 
+                    
                     <li class="sidebar-menu__item">
                         <a href="mentors.html" class="sidebar-menu__link">
                             <span class="icon"><i class="ph ph-users"></i></span>

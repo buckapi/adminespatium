@@ -1,13 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { homedir } from 'os';
 import { HomeComponent } from './components/home/home.component';
-import { HeaderComponent } from './components/ui/header/header.component';
 import { GlobalService } from './services/global.service';
 import { LoadStyleService } from './services/load-style.service';
 import { ScriptLoaderService } from './services/script-loader.service';
 import { SiderComponent } from './components/ui/sider/sider.component';
+import { TopNavbarComponent } from './components/ui/top-navbar/top-navbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomedashComponent } from './components/homedash/homedash.component';
+import { AuthPocketbaseService } from './services/auth-pocketbase.service';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +19,12 @@ import { SiderComponent } from './components/ui/sider/sider.component';
   imports: [RouterOutlet,
     CommonModule,
     HomeComponent,
-    HeaderComponent,
-    SiderComponent
+    SiderComponent,
+    TopNavbarComponent,
+    LoginComponent,
+    HomedashComponent,
+    ProjectsComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -27,8 +35,10 @@ export class AppComponent {
   constructor(
     public global: GlobalService,
     public loadStyle: LoadStyleService,
-    public scriptLoader: ScriptLoaderService
-  ) { }
+    public scriptLoader: ScriptLoaderService,
+    public auth:AuthPocketbaseService
+  
+  ) { this.auth.permision();}
   ngOnInit(): void {
     this.theme();
 

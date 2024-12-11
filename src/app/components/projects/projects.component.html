@@ -1,0 +1,152 @@
+<div class="dashboard-main-wrapper">
+  <div class="card mt-24">
+    <div class="card-body">
+
+      <div class="d-flex align-items-center justify-content-between">
+        <h4 [hidden]="showForm" class="mb-20">Projectos</h4>
+        <button *ngIf="!showForm" (click)="showNewProject()" type="button"
+          class="btn btn-main text-sm btn-sm px-24 rounded-pill py-12 d-flex align-items-center gap-2">
+          <i class="ph ph-plus me-4"></i>
+          Agregar nuevo proyecto
+        </button>
+      </div>
+
+      <div class="row g-20 pt-24" [hidden]="showForm">
+        <div class="col-xl-3 col-md-4 col-sm-6" *ngFor="let project of (realtimeProjects.projects$ | async)">
+          <div class="mentor-card rounded-8 overflow-hidden">
+            <div class="mentor-card__cover position-relative" style="background-color: black;">
+              <!-- <button 
+                type="button" 
+                (click)="deleteSupervisor(supervisor.id)"
+                class="follow-btn py-2 px-8 flex-align gap-4 text-13 fw-medium text-white border border-white rounded-pill position-absolute inset-block-start-0 inset-inline-end-0 mt-8 me-8 transition-1" 
+                style=" background: orange;"> 
+                <i class="ph ph-trash d-flex"></i> 
+                <span class="text">Delete</span>
+            </button> -->
+            </div>
+            <div class="mentor-card__content text-center">
+              <div class="w-56 h-56 rounded-circle overflow-hidden border border-white d-inline-block">
+                <a>
+                  <img src="assets/images/thumbs/mentor-img1.png" alt="" class="mentor-card__img cover-img">
+                </a>
+              </div>
+              <h5 class="mb-0">
+                <a>{{ project.title }}</a>
+              </h5>
+              <span class="text-13 text-gray-500">{{ project.date }}</span>
+              <div class="mentor-card__rating mt-20 border border-gray-100 px-8 py-6 rounded-8 flex-between flex-wrap">
+                <div class="flex-align gap-4">
+                  <span class="text-15 fw-normal text-main-600 d-flex"><i class="ph-fill ph-envelope"></i></span>
+                  <span class="text-13 fw-normal text-gray-600">{{ project.location }} </span>
+                </div>
+                <div class="flex-align gap-4">
+                  <span class="text-15 fw-normal text-warning-600 d-flex"><i class="ph-fill ph-phone"></i></span>
+                  <span class="text-13 fw-normal text-gray-600">{{ project.square_meters }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de Nuevo Supervisor -->
+      <div class="card mt-24" [hidden]="!showForm">
+        <div class="card-header border-bottom">
+          <h4 class="mb-4">Nuevo proyecto</h4>
+          <p class="text-gray-600 text-15"></p>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="projectForm" (ngSubmit)="addNewProject()">
+            <div class="row gy-4">
+              <div class="col-sm-3 col-xs-3">
+                <label for="date" class="form-label mb-8 h6">Fecha de inicio *</label>
+                <input formControlName="date" type="date" class="form-control py-11" id="date"
+                  [class.is-invalid]="projectForm.get('date')?.invalid && projectForm.get('date')?.touched">
+                <div class="invalid-feedback"
+                  *ngIf="projectForm.get('date')?.invalid && projectForm.get('date')?.touched">
+                  La fecha es requerida
+                </div>
+              </div>
+              <div class="col-sm-3 col-xs-3">
+                <label for="title" class="form-label mb-8 h6">Titulo</label>
+                <input formControlName="title" type="text" class="form-control py-11" id="title"
+                  placeholder="Ingrese el nombre del proyecto">
+              </div>
+
+              <div class="col-sm-3 col-xs-3">
+                <label for="location" class="form-label mb-8 h6">Ubicación</label>
+                <input formControlName="location" type="text" class="form-control py-11" id="location"
+                  placeholder="Ingrese la ubicación del proyecto">
+              </div>
+
+              <div class="col-sm-3 col-xs-3">
+                <label for="square_meters" class="form-label mb-8 h6">Metros2</label>
+                <input formControlName="square_meters" type="number" class="form-control py-11" id="square_meters"
+                  placeholder="Ingrese los metros2 del proyecto">
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <label for="category" class="form-label mb-8 h6">Categoría</label>
+                <input formControlName="category" type="text" class="form-control py-11" id="category"
+                  placeholder="Ingrese la categoría del proyecto">
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <label for="team" class="form-label mb-8 h6">Equipo</label>
+                <input formControlName="team" type="text" class="form-control py-11" id="team"
+                  placeholder="Ingrese el equipo del proyecto">
+              </div>
+              <div class="col-sm-12 col-xs-12">
+                <label for="description" class="form-label mb-8 h6">Descripción</label>
+                <input formControlName="description" type="text" class="form-control py-11" id="description"
+                  placeholder="Ingrese la descripción del proyecto">
+              </div>
+              <div class="col-sm-12 col-xs-12">
+                <label for="challenge" class="form-label mb-8 h6">Desafío</label>
+                <input formControlName="challenge" type="text" class="form-control py-11" id="challenge"
+                  placeholder="Ingrese el desafío del proyecto">
+              </div>
+
+              <div class="col-sm-12 col-xs-12">
+                <label for="concept" class="form-label mb-8 h6">Concepto</label>
+                <input formControlName="concept" type="text" class="form-control py-11" id="concept"
+                  placeholder="Ingrese el concepto del proyecto">
+              </div>
+
+              <div class="col-sm-12 col-xs-12">
+                <label for="execution" class="form-label mb-8 h6">Ejecución</label>
+                <input formControlName="execution" type="text" class="form-control py-11" id="execution"
+                  placeholder="Ingrese la ejecución del proyecto">
+              </div>
+              <!--  <div class="col-12">
+                  <label for="imageUpload" class="form-label mb-8 h6">Your Photo</label>
+                  <div class="flex-align gap-22">
+                    <div class="avatar-upload flex-shrink-0">
+                      <input type="file" id="imageUpload" (change)="onFileChange($event)" accept=".png, .jpg, .jpeg">
+                      <div class="avatar-preview">
+                        <div id="profileImagePreview" [style.background-image]="'url(' + previewImage + ')'"></div>
+                      </div>
+                    </div>
+                    <div class="avatar-upload-box text-center position-relative flex-grow-1 py-24 px-4 rounded-16 border border-main-300 border-dashed bg-main-50 hover-bg-main-100 hover-border-main-400 transition-2 cursor-pointer">
+                      <label for="imageUpload" class="position-absolute inset-block-start-0 inset-inline-start-0 w-100 h-100 rounded-16 cursor-pointer z-1"></label>
+                      <span class="text-32 icon text-main-600 d-inline-flex"><i class="ph ph-upload"></i></span>
+                      <span class="text-13 d-block text-gray-400 text my-8">Click to upload or drag and drop</span>
+                      <span class="text-13 d-block text-main-600">SVG, PNG, JPEG OR GIF (max 1080px1200px)</span>
+                    </div>
+                  </div>
+                </div> -->
+
+              <div class="col-12">
+                <div class="flex-align justify-content-end gap-8">
+                  <button type="button" (click)="showForm=false"
+                    class="btn btn-outline-main bg-main-100 border-main-100 text-main-600 rounded-pill py-9">Cancelar</button>
+                  <button type="submit" class="btn btn-main rounded-pill py-9" [disabled]="projectForm.invalid">
+                    Guardar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
