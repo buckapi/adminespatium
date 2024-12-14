@@ -39,49 +39,49 @@
         <ul class="step-list mb-24">
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6"
                 [ngClass]="{'active': currentStep === 1}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-one"></i></span>
                 Datos Generales
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 2}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-two"></i></span>
                 Sección de Habitaciones y Áreas
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 3}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-three"></i></span>
                 Complementos y Circulación
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 4}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
-                Espacios sin Techo
+                <span class="icon text-xl d-flex"><i class="ph ph-number-four"></i></span>
+                Acabados de Construcción 
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 5}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
-                Acabados de Construcción
+                <span class="icon text-xl d-flex"><i class="ph ph-number-five"></i></span>
+                Espacios sin Techo
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 6}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-six"></i></span>
                 Albercas
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 7}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-seven"></i></span>
                 Costos y Precios
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 8}">
-                <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-eight"></i></span>
                 Total del Proyecto
                 <span class="line position-relative"></span>
             </li>
@@ -94,18 +94,11 @@
                     <div class="price-amount text-main-600 fw-bold">
                         $ {{precioEstimado | number:'1.2-2'}}
                     </div>
+                    <!-- <div class="price-amount text-main-600 fw-bold">
+                        {{Total terreno | number:'1.2-2'}}
+                    </div> -->
                 </div>
             </div>
-
-            <!-- Botones -->
-            <!-- <div class="flex-align justify-content-end gap-8">
-                <button type="button" class="btn btn-outline-main bg-main-100 border-main-100 text-main-600 rounded-pill py-9">
-                    Guardar Borrador
-                </button>
-                <button type="button" class="btn btn-main rounded-pill py-9" [disabled]="!isFormValid">
-                    Finalizar Cotización
-                </button>
-            </div> -->
         </div>
         <!-- Create Course Step List End -->
 
@@ -140,7 +133,6 @@
                                     class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
                             <input type="number" id="phone" class="form-control py-11" placeholder="Teléfono">
                         </div>
-
                         <!-- DIRECCIÓN -->
                         <div class="col-sm-6">
                             <label for="courseCategory" class="h5 mb-8 fw-semibold font-heading">Seleccione una
@@ -160,9 +152,6 @@
                             <input type="text" id="projectAddress" class="form-control py-11"
                                 placeholder="Ingrese la dirección">
                         </div>
-
-
-
                         <div class="flex-align justify-content-end gap-8">
                             <button type="button" class="btn btn-outline-main rounded-pill py-9">Cancelar</button>
                             <button type="button" class="btn btn-main rounded-pill py-9"
@@ -174,12 +163,11 @@
                 <!-- Step 2 -->
                 <div *ngIf="currentStep === 2">
                     <div class="row gy-20">
-                        <h5 class="text-center">Sección de Habitaciones y Áreas</h5>
+                        <h5>Sección de Habitaciones y Áreas</h5>
 
                         <!-- Altura Interior -->
                         <div class="col-sm-6">
-                            <label for="alturaInterior" class="h5 mb-8 fw-semibold font-heading">Altura Interior
-                                Entrepiso</label>
+                            <label for="alturaInterior" class="h5 mb-8 fw-semibold font-heading">Altura Interior Entrepiso</label>
                             <div class="position-relative">
                                 <select id="alturaInterior" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onAlturaChange($event)">
@@ -194,8 +182,7 @@
 
                         <!-- Tamaño del Terreno -->
                         <div class="col-sm-6">
-                            <label for="tamanoTerreno" class="h5 mb-8 fw-semibold font-heading">Tamaño del
-                                Terreno</label>
+                            <label for="tamanoTerreno" class="h5 mb-8 fw-semibold font-heading">Tamaño del Terreno</label>
                             <div class="position-relative">
                                 <select id="tamanoTerreno" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onTamanoTerrenoChange($event)">
@@ -206,21 +193,78 @@
                                 </select>
                             </div>
                         </div>
+                        
 
-                        <!-- Puerta de Acceso -->
-                        <div class="col-sm-6">
-                            <label for="puertaAcceso" class="h5 mb-8 fw-semibold font-heading">Puerta de Acceso</label>
-                            <div class="position-relative">
-                                <select id="puertaAcceso" class="form-select py-9 placeholder-13 text-15"
-                                    (change)="onPuertaChange($event)">
-                                    <option value="" disabled selected>Seleccione tipo de puerta</option>
-                                    <option *ngFor="let puerta of opcionesPuertas" [value]="puerta.valor">
-                                        {{puerta.descripcion}}
-                                    </option>
-                                </select>
+                        <!-- Tabla de Áreas -->
+                        <div class="col-12">
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <h6 class="mb-3">Áreas del Proyecto</h6>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Local</th>
+                                                    <th>NUM</th>
+                                                    <th>Área (m²)</th>
+                                                    <th>Factor</th>
+                                                    <th>Tamaño por Factor</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Áreas Principales -->
+                                                <tr *ngFor="let area of areas; let i = index">
+                                                    <td>{{area.local}}</td>
+                                                    <td>
+                                                        <input type="number" 
+                                                               class="form-control form-control-sm" 
+                                                               [(ngModel)]="area.num"
+                                                               (change)="calcularTamanoPorFactor(i)"
+                                                               [min]="0">
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" 
+                                                               class="form-control form-control-sm" 
+                                                               [(ngModel)]="area.area"
+                                                               (change)="calcularTamanoPorFactor(i)"
+                                                               [min]="0">
+                                                    </td>
+                                                    <td>{{area.factor}}</td>
+                                                    <td>{{area.tamanoPorFactor | number:'1.2-2'}} m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" 
+                                                                   type="checkbox" 
+                                                                   [(ngModel)]="area.incluido"
+                                                                   (change)="actualizarTotales()">
+                                                            <label class="form-check-label">Incluir</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="3"><strong>Subtotal M² con Factor de Area</strong></td>
+                                                    <td><strong>{{subtotalArea | number:'1.2-2'}} m²</strong></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><strong>Circulación / Paredes (15%)</strong></td>
+                                                    <td><strong>{{areaCirculacion | number:'1.2-2'}} m²</strong></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><strong>Total M² con Factor de Area</strong></td>
+                                                    <td><strong>{{totalAreaConFactor | number:'1.2-2'}} m²</strong></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
 
                         <div class="flex-align justify-content-end gap-8">
                             <button type="button" class="btn btn-outline-main rounded-pill py-9"
@@ -229,6 +273,267 @@
                                 (click)="nextStep()">Siguiente</button>
                         </div>
                     </div>
+                </div>
+                <div *ngIf="currentStep === 3">
+                    <div class="row gy-20">
+                        <h5>Complementos y Circulación</h5>
+
+                        <!-- Puerta de Acceso -->
+                        <div class="col-sm-4">
+                            <label for="puertaAcceso" class="h5 mb-8 fw-semibold font-heading">Puerta de Acceso</label>
+                            <div class="position-relative">
+                                <select id="puertaAcceso" class="form-select py-9 placeholder-13 text-15" 
+                                    (change)="onPuertaChange($event)">
+                                    <option value="">Seleccione una puerta</option>
+                                    <option *ngFor="let puerta of opcionesPuertasAcceso" [value]="puerta.valor">
+                                        {{puerta.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Puertas Interiores -->
+                        <div class="col-sm-4">
+                            <label for="puertasInteriores" class="h5 mb-8 fw-semibold font-heading">Puertas Interiores</label>
+                            <div class="position-relative">
+                                <select id="puertasInteriores" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onPuertasInterioresChange($event)">
+                                    <option value="">Seleccione puertas interiores</option>
+                                    <option *ngFor="let puerta of opcionesPuertasInteriores" [value]="puerta.valor">
+                                        {{puerta.descripcion}} ({{puerta.tipoConstruccion}})
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Closets y Vestidores -->
+                        <div class="col-sm-4">
+                            <label for="closetsVestidores" class="h5 mb-8 fw-semibold font-heading">Closets y Vestidores</label>
+                            <div class="position-relative">
+                                <select id="closetsVestidores" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onClosetsVestidoresChange($event)">
+                                    <option value="">Seleccione closets y vestidores</option>
+                                    <option *ngFor="let closet of opcionesClosetsVestidores" [value]="closet.valor">
+                                        {{closet.descripcion}} ({{closet.tipoConstruccion}})
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <!-- Cancelería -->
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                    <label for="canceleria" class="h5 mb-8 fw-semibold font-heading">Cancelería de
+                                        Aluminio y Ventanas:</label>
+                                    <div class="position-relative">
+                                        <select id="canceleria" class="form-control"
+                                            (change)="onCanceleriaChange($event)">
+                                            <option value="">Seleccione tipo de cancelería</option>
+                                            <option *ngFor="let canceleria of opcionesCanceleria"
+                                                [value]="canceleria.valor">
+                                                {{canceleria.descripcion}} ({{canceleria.tipoConstruccion}})
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>                            
+                        </div>                        
+
+                        <!-- Forma de Material -->
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="formaMaterial" class="h5 mb-8 fw-semibold font-heading">Forma de
+                                    Material:</label>
+                                    <div class="position-relative">
+                                        <select id="formaMaterial" class="form-control"
+                                            (change)="onFormaMaterialChange($event)">
+                                            <option value="">Seleccione forma de material</option>
+                                            <option *ngFor="let forma of opcionesFormaMaterial" [value]="forma.valor">
+                                                {{forma.descripcion}} ({{forma.tipoConstruccion}})
+                                            </option>
+                                        </select>
+                                    </div>
+                            </div>
+                        </div>
+                         <!-- Cocina Integral -->
+                         <div class="col-sm-4">
+                            <label for="cocinaIntegral" class="h5 mb-8 fw-semibold font-heading">Línea Blanca Cocina Integral</label>
+                            <div class="position-relative">
+                                <select id="cocinaIntegral" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onCocinaIntegralChange($event)">
+                                    <option value="">Seleccione equipamiento de cocina</option>
+                                    <option value="34000">Media: Electrodomésticos básicos LG ($34,000)</option>
+                                    <option value="67000">Semi Lujo: Electrodomésticos Teka ($67,000)</option>
+                                    <option value="124000">Residencial: Cocina integral 5m con Smeg ($124,000)</option>
+                                    <option value="660999.30">Residencial Plus: Cocina premium con Wolf ($660,999.30)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Muebles de Baño -->
+                        <div class="col-sm-4">
+                            <label for="mueblesBano" class="h5 mb-8 fw-semibold font-heading">Muebles de Baño y Accesorios</label>
+                            <div class="position-relative">
+                                <select id="mueblesBano" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onMueblesBanoChange($event)">
+                                    <option value="">Seleccione tipo de muebles de baño</option>
+                                    <option value="media">Media: Mezcladoras y accesorios básicos</option>
+                                    <option value="semilujo">Semi Lujo: Mezcladoras y accesorios premium</option>
+                                    <option value="residencial">Residencial: Mezcladoras y accesorios de alta gama</option>
+                                    <option value="residencial_plus">Residencial Plus: Mezcladoras y accesorios de lujo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Iluminación y Accesorios -->
+                        <div class="col-sm-4">
+                            <label for="iluminacion" class="h5 mb-8 fw-semibold font-heading">Iluminación y Telecomunicaciones</label>
+                            <div class="position-relative">
+                                <select id="iluminacion" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onIluminacionChange($event)">
+                                    <option value="">Seleccione tipo de iluminación</option>
+                                    <option value="media">Media: Luminarias y accesorios básicos</option>
+                                    <option value="semilujo">Semi Lujo: Luminarias y accesorios premium</option>
+                                    <option value="residencial">Residencial: Luminarias y accesorios de alta gama</option>
+                                    <option value="residencial_plus">Residencial Plus: Iluminación indirecta y accesorios de lujo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Sección de Extras -->
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5>Extras y Equipamiento Adicional</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Extra</th>
+                                                <th>Incluir</th>
+                                                <th>Cantidad</th>
+                                                <th>Costo por Unidad</th>
+                                                <!-- <th>Área Total Factor</th> -->
+                                                <th>Costo por Área</th>
+                                                <!-- <th>Total</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let extra of extras; let i = index">
+                                                <td>{{extra.nombre}}</td>
+                                                <td>
+                                                    <input type="checkbox" 
+                                                           [(ngModel)]="extra.incluido" 
+                                                           (change)="calcularTotalExtra(i)">
+                                                </td>
+                                                <td>
+                                                    <input type="number" 
+                                                           [(ngModel)]="extra.cantidad" 
+                                                           (change)="calcularTotalExtra(i)" 
+                                                           min="0" 
+                                                           [disabled]="!extra.incluido"
+                                                           class="form-control form-control-sm">
+                                                </td>
+                                                <td>${{extra.costoPorUnidad | number:'1.2-2'}}</td>
+                                                <!-- <td>{{totalAreaConFactor | number:'1.2-2'}} m²</td> -->
+                                                <td>${{extra.nombre === 'UNIDAD DE RE CARGA ELÉCTRICA VEHICULAR' ? 
+                                                       extra.costoPorUnidad : 
+                                                       (extra.costoPorUnidad * totalAreaConFactor) | number:'1.2-2'}}</td>
+                                                <!-- <td>${{extra.total | number:'1.2-2'}}</td> -->
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="6" class="text-end"><strong>Total Extras:</strong></td>
+                                                <td><strong>${{totalExtras | number:'1.2-2'}}</strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Sección de Instalaciones Especiales -->
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5>Instalaciones Especiales - Climatización A/C, Calefacción y Sistemas de Generación de Energía</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Instalación</th>
+                                                <th>Incluir</th>
+                                                <th>Costo por M²</th>
+                                              <!--   <th>Área Total Factor</th> -->
+                                                <th>Costo por Área</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let instalacion of instalacionesEspeciales; let i = index">
+                                                <td>{{instalacion.nombre}}</td>
+                                                <td>
+                                                    <input type="checkbox" 
+                                                        [(ngModel)]="instalacion.incluido" 
+                                                        (change)="calcularTotalInstalacion(i)">
+                                                </td>
+                                                <td>${{instalacion.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                               <!--  <td>{{totalAreaConFactor | number:'1.2-2'}} m²</td> -->
+                                                <td>${{instalacion.nombre === 'SISTEMA DE GENERACIÓN DE ENERGÍA SOLAR' ? 
+                                                    (instalacion.costoPorM2 * totalAreaConFactor) : 
+                                                    (instalacion.costoPorM2 * totalAreaConFactor) | number:'1.2-2'}}</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="4" class="text-end"><strong>Total Instalaciones:</strong></td>
+                                                <td><strong>${{totalInstalaciones | number:'1.2-2'}}</strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-align justify-content-end gap-8">
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9"
+                                (click)="previousStep()">Anterior</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="currentStep === 4">
+                    <div class="row gy-20">
+                        <h5>Acabados de Construcción</h5>
+                        <!-- Pisos y Lambrines -->
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="pisos" class="h5 mb-8 fw-semibold font-heading">Acabados en Pisos y
+                                    Lambrines Interiores:</label>
+                                <div class="position-relative">
+                                    <select id="pisos" class="form-control" (change)="onPisosChange($event)">
+                                        <option value="">Seleccione tipo de acabado</option>
+                                        <option *ngFor="let piso of opcionesPisos" [value]="piso.valor">
+                                            {{piso.descripcion}} ({{piso.tipoConstruccion}})
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-align justify-content-end gap-8">
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9"
+                                (click)="previousStep()">Anterior</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="currentStep === 5">
+                    <h5>Espacios sin Techo</h5>
+                </div>
+                <div *ngIf="currentStep === 6">
+                    <h5>Albercas</h5>
                 </div>
             </div>
         </div>
@@ -251,16 +556,24 @@
                             <p><strong>Tamaño total del terreno:</strong> {{tamanoTerrenoSeleccionado}} m²</p>
                             <p><strong>Área construible (COS 50%):</strong> {{areaConstructible}} m²</p>
                             <p><strong>Tipo de puerta:</strong> {{tipoPuertaAcceso}}</p>
+                            <p><strong>Tipo de puertas interiores:</strong> {{tipoPuertasInteriores}}</p>
+                            <p><strong>Tipo de closets y vestidores:</strong> {{tipoClosetsVestidores}}</p>
+                            <p><strong>Tipo de cocina integral:</strong> {{tipoCocinaIntegral}}</p>
+                            <p><strong>Tipo de cancelería:</strong> {{tipoCanceleria}}</p>
+                            <p><strong>Tipo de pisos:</strong> {{tipoPisos}}</p>
+                            <p><strong>Forma de material:</strong> {{tipoFormaMaterial}}</p>
                         </div>
                         <div class="col-md-6">
                             <p><strong>Área libre:</strong> {{areaLibre}} m²</p>
                             <p><strong>Factor de costo por ciudad:</strong> ${{factorCostoCiudad}}</p>
                             <p><strong>Precio estimado:</strong> ${{precioEstimado | number:'1.2-2'}}</p>
+                            <p><strong>Subtotal M² con Factor de Area:</strong> {{subtotalArea | number:'1.2-2'}} m²</p>
+                            <p><strong>Circulación / Paredes (15%):</strong> {{areaCirculacion | number:'1.2-2'}} m²</p>
+                            <p><strong>Total M² con Factor de Area:</strong> {{totalAreaConFactor | number:'1.2-2'}} m²</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-    </div>
+
 </div>

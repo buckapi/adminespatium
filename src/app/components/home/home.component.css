@@ -7,3 +7,55 @@
     color: #212529 !important;
     background-color: #fff !important;
 }
+
+.extras-container {
+    padding: 20px;
+  }
+  
+  .extra-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .extra-header {
+    margin-bottom: 10px;
+  }
+  
+  .extra-details {
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .cantidad-input {
+    margin-bottom: 10px;
+  }
+  
+  .cantidad-input input {
+    width: 80px;
+    padding: 5px;
+    margin-left: 10px;
+  }
+  
+  .costos-info p {
+    margin: 5px 0;
+  }
+  
+  .total-extra {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .total-extras {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+  }
+  
+  .total-extras h3 {
+    margin: 0;
+    color: #2c3e50;
+  }
