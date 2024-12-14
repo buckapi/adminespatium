@@ -58,7 +58,7 @@
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 4}">
                 <span class="icon text-xl d-flex"><i class="ph ph-number-four"></i></span>
-                Acabados de Construcción 
+                Acabados de Construcción
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
@@ -76,12 +76,12 @@
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 7}">
                 <span class="icon text-xl d-flex"><i class="ph ph-number-seven"></i></span>
-                Costos y Precios
+                Exteriores
                 <span class="line position-relative"></span>
             </li>
             <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
                 [ngClass]="{'active': currentStep === 8}">
-                <span class="icon text-xl d-flex"><i class="ph ph-number-eight"></i></span>
+                <span class="icon text-xl d-flex"><i class="ph ph-number-seven"></i></span>
                 Total del Proyecto
                 <span class="line position-relative"></span>
             </li>
@@ -112,7 +112,6 @@
                 </button>
             </div>
             <div class="card-body">
-                <!-- Step 1 -->
                 <div *ngIf="currentStep === 1">
                     <div class="row gy-20">
                         <h5 class="text-center">Datos generales</h5>
@@ -159,15 +158,14 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Step 2 -->
                 <div *ngIf="currentStep === 2">
                     <div class="row gy-20">
                         <h5>Sección de Habitaciones y Áreas</h5>
 
                         <!-- Altura Interior -->
                         <div class="col-sm-6">
-                            <label for="alturaInterior" class="h5 mb-8 fw-semibold font-heading">Altura Interior Entrepiso</label>
+                            <label for="alturaInterior" class="h5 mb-8 fw-semibold font-heading">Altura Interior
+                                Entrepiso</label>
                             <div class="position-relative">
                                 <select id="alturaInterior" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onAlturaChange($event)">
@@ -182,7 +180,8 @@
 
                         <!-- Tamaño del Terreno -->
                         <div class="col-sm-6">
-                            <label for="tamanoTerreno" class="h5 mb-8 fw-semibold font-heading">Tamaño del Terreno</label>
+                            <label for="tamanoTerreno" class="h5 mb-8 fw-semibold font-heading">Tamaño del
+                                Terreno</label>
                             <div class="position-relative">
                                 <select id="tamanoTerreno" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onTamanoTerrenoChange($event)">
@@ -193,7 +192,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
 
                         <!-- Tabla de Áreas -->
                         <div class="col-12">
@@ -217,27 +216,22 @@
                                                 <tr *ngFor="let area of areas; let i = index">
                                                     <td>{{area.local}}</td>
                                                     <td>
-                                                        <input type="number" 
-                                                               class="form-control form-control-sm" 
-                                                               [(ngModel)]="area.num"
-                                                               (change)="calcularTamanoPorFactor(i)"
-                                                               [min]="0">
+                                                        <input type="number" class="form-control form-control-sm"
+                                                            [(ngModel)]="area.num" (change)="calcularTamanoPorFactor(i)"
+                                                            [min]="0">
                                                     </td>
                                                     <td>
-                                                        <input type="number" 
-                                                               class="form-control form-control-sm" 
-                                                               [(ngModel)]="area.area"
-                                                               (change)="calcularTamanoPorFactor(i)"
-                                                               [min]="0">
+                                                        <input type="number" class="form-control form-control-sm"
+                                                            [(ngModel)]="area.area"
+                                                            (change)="calcularTamanoPorFactor(i)" [min]="0">
                                                     </td>
                                                     <td>{{area.factor}}</td>
                                                     <td>{{area.tamanoPorFactor | number:'1.2-2'}} m²</td>
                                                     <td>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" 
-                                                                   type="checkbox" 
-                                                                   [(ngModel)]="area.incluido"
-                                                                   (change)="actualizarTotales()">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                [(ngModel)]="area.incluido"
+                                                                (change)="actualizarTotales()">
                                                             <label class="form-check-label">Incluir</label>
                                                         </div>
                                                     </td>
@@ -282,7 +276,7 @@
                         <div class="col-sm-4">
                             <label for="puertaAcceso" class="h5 mb-8 fw-semibold font-heading">Puerta de Acceso</label>
                             <div class="position-relative">
-                                <select id="puertaAcceso" class="form-select py-9 placeholder-13 text-15" 
+                                <select id="puertaAcceso" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onPuertaChange($event)">
                                     <option value="">Seleccione una puerta</option>
                                     <option *ngFor="let puerta of opcionesPuertasAcceso" [value]="puerta.valor">
@@ -294,7 +288,8 @@
 
                         <!-- Puertas Interiores -->
                         <div class="col-sm-4">
-                            <label for="puertasInteriores" class="h5 mb-8 fw-semibold font-heading">Puertas Interiores</label>
+                            <label for="puertasInteriores" class="h5 mb-8 fw-semibold font-heading">Puertas
+                                Interiores</label>
                             <div class="position-relative">
                                 <select id="puertasInteriores" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onPuertasInterioresChange($event)">
@@ -308,7 +303,8 @@
 
                         <!-- Closets y Vestidores -->
                         <div class="col-sm-4">
-                            <label for="closetsVestidores" class="h5 mb-8 fw-semibold font-heading">Closets y Vestidores</label>
+                            <label for="closetsVestidores" class="h5 mb-8 fw-semibold font-heading">Closets y
+                                Vestidores</label>
                             <div class="position-relative">
                                 <select id="closetsVestidores" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onClosetsVestidoresChange($event)">
@@ -319,44 +315,44 @@
                                 </select>
                             </div>
                         </div>
-                       
+
                         <!-- Cancelería -->
                         <div class="col-sm-4">
                             <div class="form-group">
-                                    <label for="canceleria" class="h5 mb-8 fw-semibold font-heading">Cancelería de
-                                        Aluminio y Ventanas:</label>
-                                    <div class="position-relative">
-                                        <select id="canceleria" class="form-control"
-                                            (change)="onCanceleriaChange($event)">
-                                            <option value="">Seleccione tipo de cancelería</option>
-                                            <option *ngFor="let canceleria of opcionesCanceleria"
-                                                [value]="canceleria.valor">
-                                                {{canceleria.descripcion}} ({{canceleria.tipoConstruccion}})
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>                            
-                        </div>                        
+                                <label for="canceleria" class="h5 mb-8 fw-semibold font-heading">Cancelería de
+                                    Aluminio y Ventanas:</label>
+                                <div class="position-relative">
+                                    <select id="canceleria" class="form-control" (change)="onCanceleriaChange($event)">
+                                        <option value="">Seleccione tipo de cancelería</option>
+                                        <option *ngFor="let canceleria of opcionesCanceleria"
+                                            [value]="canceleria.valor">
+                                            {{canceleria.descripcion}} ({{canceleria.tipoConstruccion}})
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Forma de Material -->
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="formaMaterial" class="h5 mb-8 fw-semibold font-heading">Forma de
                                     Material:</label>
-                                    <div class="position-relative">
-                                        <select id="formaMaterial" class="form-control"
-                                            (change)="onFormaMaterialChange($event)">
-                                            <option value="">Seleccione forma de material</option>
-                                            <option *ngFor="let forma of opcionesFormaMaterial" [value]="forma.valor">
-                                                {{forma.descripcion}} ({{forma.tipoConstruccion}})
-                                            </option>
-                                        </select>
-                                    </div>
+                                <div class="position-relative">
+                                    <select id="formaMaterial" class="form-control"
+                                        (change)="onFormaMaterialChange($event)">
+                                        <option value="">Seleccione forma de material</option>
+                                        <option *ngFor="let forma of opcionesFormaMaterial" [value]="forma.valor">
+                                            {{forma.descripcion}} ({{forma.tipoConstruccion}})
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                         <!-- Cocina Integral -->
-                         <div class="col-sm-4">
-                            <label for="cocinaIntegral" class="h5 mb-8 fw-semibold font-heading">Línea Blanca Cocina Integral</label>
+                        <!-- Cocina Integral -->
+                        <div class="col-sm-4">
+                            <label for="cocinaIntegral" class="h5 mb-8 fw-semibold font-heading">Línea Blanca Cocina
+                                Integral</label>
                             <div class="position-relative">
                                 <select id="cocinaIntegral" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onCocinaIntegralChange($event)">
@@ -364,37 +360,44 @@
                                     <option value="34000">Media: Electrodomésticos básicos LG ($34,000)</option>
                                     <option value="67000">Semi Lujo: Electrodomésticos Teka ($67,000)</option>
                                     <option value="124000">Residencial: Cocina integral 5m con Smeg ($124,000)</option>
-                                    <option value="660999.30">Residencial Plus: Cocina premium con Wolf ($660,999.30)</option>
+                                    <option value="660999.30">Residencial Plus: Cocina premium con Wolf ($660,999.30)
+                                    </option>
                                 </select>
                             </div>
                         </div>
 
                         <!-- Muebles de Baño -->
                         <div class="col-sm-4">
-                            <label for="mueblesBano" class="h5 mb-8 fw-semibold font-heading">Muebles de Baño y Accesorios</label>
+                            <label for="mueblesBano" class="h5 mb-8 fw-semibold font-heading">Muebles de Baño y
+                                Accesorios</label>
                             <div class="position-relative">
                                 <select id="mueblesBano" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onMueblesBanoChange($event)">
                                     <option value="">Seleccione tipo de muebles de baño</option>
                                     <option value="media">Media: Mezcladoras y accesorios básicos</option>
                                     <option value="semilujo">Semi Lujo: Mezcladoras y accesorios premium</option>
-                                    <option value="residencial">Residencial: Mezcladoras y accesorios de alta gama</option>
-                                    <option value="residencial_plus">Residencial Plus: Mezcladoras y accesorios de lujo</option>
+                                    <option value="residencial">Residencial: Mezcladoras y accesorios de alta gama
+                                    </option>
+                                    <option value="residencial_plus">Residencial Plus: Mezcladoras y accesorios de lujo
+                                    </option>
                                 </select>
                             </div>
                         </div>
 
                         <!-- Iluminación y Accesorios -->
                         <div class="col-sm-4">
-                            <label for="iluminacion" class="h5 mb-8 fw-semibold font-heading">Iluminación y Telecomunicaciones</label>
+                            <label for="iluminacion" class="h5 mb-8 fw-semibold font-heading">Iluminación y
+                                Telecomunicaciones</label>
                             <div class="position-relative">
                                 <select id="iluminacion" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onIluminacionChange($event)">
                                     <option value="">Seleccione tipo de iluminación</option>
                                     <option value="media">Media: Luminarias y accesorios básicos</option>
                                     <option value="semilujo">Semi Lujo: Luminarias y accesorios premium</option>
-                                    <option value="residencial">Residencial: Luminarias y accesorios de alta gama</option>
-                                    <option value="residencial_plus">Residencial Plus: Iluminación indirecta y accesorios de lujo</option>
+                                    <option value="residencial">Residencial: Luminarias y accesorios de alta gama
+                                    </option>
+                                    <option value="residencial_plus">Residencial Plus: Iluminación indirecta y
+                                        accesorios de lujo</option>
                                 </select>
                             </div>
                         </div>
@@ -422,23 +425,20 @@
                                             <tr *ngFor="let extra of extras; let i = index">
                                                 <td>{{extra.nombre}}</td>
                                                 <td>
-                                                    <input type="checkbox" 
-                                                           [(ngModel)]="extra.incluido" 
-                                                           (change)="calcularTotalExtra(i)">
+                                                    <input type="checkbox" [(ngModel)]="extra.incluido"
+                                                        (change)="calcularTotalExtra(i)">
                                                 </td>
                                                 <td>
-                                                    <input type="number" 
-                                                           [(ngModel)]="extra.cantidad" 
-                                                           (change)="calcularTotalExtra(i)" 
-                                                           min="0" 
-                                                           [disabled]="!extra.incluido"
-                                                           class="form-control form-control-sm">
+                                                    <input type="number" [(ngModel)]="extra.cantidad"
+                                                        (change)="calcularTotalExtra(i)" min="0"
+                                                        [disabled]="!extra.incluido"
+                                                        class="form-control form-control-sm">
                                                 </td>
                                                 <td>${{extra.costoPorUnidad | number:'1.2-2'}}</td>
                                                 <!-- <td>{{totalAreaConFactor | number:'1.2-2'}} m²</td> -->
-                                                <td>${{extra.nombre === 'UNIDAD DE RE CARGA ELÉCTRICA VEHICULAR' ? 
-                                                       extra.costoPorUnidad : 
-                                                       (extra.costoPorUnidad * totalAreaConFactor) | number:'1.2-2'}}</td>
+                                                <td>${{extra.nombre === 'UNIDAD DE RE CARGA ELÉCTRICA VEHICULAR' ?
+                                                    extra.costoPorUnidad :
+                                                    (extra.costoPorUnidad * totalAreaConFactor) | number:'1.2-2'}}</td>
                                                 <!-- <td>${{extra.total | number:'1.2-2'}}</td> -->
                                             </tr>
                                         </tbody>
@@ -455,7 +455,8 @@
                         <!-- Sección de Instalaciones Especiales -->
                         <div class="card mt-4">
                             <div class="card-header">
-                                <h5>Instalaciones Especiales - Climatización A/C, Calefacción y Sistemas de Generación de Energía</h5>
+                                <h5>Instalaciones Especiales - Climatización A/C, Calefacción y Sistemas de Generación
+                                    de Energía</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -465,7 +466,7 @@
                                                 <th>Instalación</th>
                                                 <th>Incluir</th>
                                                 <th>Costo por M²</th>
-                                              <!--   <th>Área Total Factor</th> -->
+                                                <!--   <th>Área Total Factor</th> -->
                                                 <th>Costo por Área</th>
                                             </tr>
                                         </thead>
@@ -473,20 +474,21 @@
                                             <tr *ngFor="let instalacion of instalacionesEspeciales; let i = index">
                                                 <td>{{instalacion.nombre}}</td>
                                                 <td>
-                                                    <input type="checkbox" 
-                                                        [(ngModel)]="instalacion.incluido" 
+                                                    <input type="checkbox" [(ngModel)]="instalacion.incluido"
                                                         (change)="calcularTotalInstalacion(i)">
                                                 </td>
                                                 <td>${{instalacion.costoPorM2 | number:'1.2-2'}}/m²</td>
-                                               <!--  <td>{{totalAreaConFactor | number:'1.2-2'}} m²</td> -->
-                                                <td>${{instalacion.nombre === 'SISTEMA DE GENERACIÓN DE ENERGÍA SOLAR' ? 
-                                                    (instalacion.costoPorM2 * totalAreaConFactor) : 
-                                                    (instalacion.costoPorM2 * totalAreaConFactor) | number:'1.2-2'}}</td>
+                                                <!--  <td>{{totalAreaConFactor | number:'1.2-2'}} m²</td> -->
+                                                <td>${{instalacion.nombre === 'SISTEMA DE GENERACIÓN DE ENERGÍA SOLAR' ?
+                                                    (instalacion.costoPorM2 * totalAreaConFactor) :
+                                                    (instalacion.costoPorM2 * totalAreaConFactor) | number:'1.2-2'}}
+                                                </td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="4" class="text-end"><strong>Total Instalaciones:</strong></td>
+                                                <td colspan="4" class="text-end"><strong>Total Instalaciones:</strong>
+                                                </td>
                                                 <td><strong>${{totalInstalaciones | number:'1.2-2'}}</strong></td>
                                             </tr>
                                         </tfoot>
@@ -494,6 +496,45 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- instalaciones especiales -->
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5>Sistemas de Generación de Energía</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sistema</th>
+                                                <th>Incluir</th>
+                                                <th>Costo por M²</th>
+                                                <th>Costo Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Paneles Solares Fotovoltaicos</td>
+                                                <td>
+                                                    <input type="checkbox" [(ngModel)]="sistemaSolarIncluido"
+                                                        (change)="calcularCostoSistemaEnergia()">
+                                                </td>
+                                                <td>$450.00/m²</td>
+                                                <td>${{costoSistemaEnergia | number:'1.2-2'}}</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" class="text-end"><strong>Total Sistema de
+                                                        Energía:</strong></td>
+                                                <td><strong>${{costoSistemaEnergia | number:'1.2-2'}}</strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="flex-align justify-content-end gap-8">
                             <button type="button" class="btn btn-outline-main rounded-pill py-9"
@@ -506,7 +547,8 @@
                 <div *ngIf="currentStep === 4">
                     <div class="row gy-20">
                         <h5>Acabados de Construcción</h5>
-                        <!-- Pisos y Lambrines -->
+
+                        <!-- Sección existente de Pisos y Lambrines -->
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="pisos" class="h5 mb-8 fw-semibold font-heading">Acabados en Pisos y
@@ -521,6 +563,55 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Nueva sección de Acabados de Techos -->
+                        <div class="col-12">
+                            <div class="card mt-4">
+                                <div class="card-header">
+                                    <h5>Acabados de Techos y Azoteas</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo de Acabado</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Descripción</th>
+                                                    <th>Incluir</th>
+                                                    <th>Costo Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let acabado of acabadosTecho; let i = index">
+                                                    <td>{{acabado.tipo}}</td>
+                                                    <td>${{acabado.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>{{acabado.descripcion}}</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                [(ngModel)]="acabado.incluido"
+                                                                (change)="calcularCostoAcabadosTecho()">
+                                                        </div>
+                                                    </td>
+                                                    <td>${{acabado.incluido ? (acabado.costoPorM2 * totalAreaConFactor)
+                                                        : 0 | number:'1.2-2'}}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4" class="text-end"><strong>Total Acabados de
+                                                            Techos:</strong></td>
+                                                    <td><strong>${{costoTotalAcabadosTecho | number:'1.2-2'}}</strong>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="flex-align justify-content-end gap-8">
                             <button type="button" class="btn btn-outline-main rounded-pill py-9"
                                 (click)="previousStep()">Anterior</button>
@@ -530,10 +621,394 @@
                     </div>
                 </div>
                 <div *ngIf="currentStep === 5">
-                    <h5>Espacios sin Techo</h5>
+                    <div class="row gy-20">
+                        <h5>Fachadas</h5>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="fachada" class="h5 mb-8 fw-semibold font-heading">Tipo de Fachada:</label>
+                                <div class="position-relative">
+                                    <select id="fachada" class="form-select py-9 placeholder-13 text-15"
+                                        (change)="onFachadaChange($event)">
+                                        <option value="">Seleccione tipo de fachada</option>
+                                        <option *ngFor="let fachada of opcionesFachadas" [value]="fachada.tipo">
+                                            {{fachada.tipo}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mostrar la selección actual si existe -->
+                        <div class="col-12 mt-3" *ngIf="tipoFachadaSeleccionada">
+                            <div class="alert alert-info">
+                                <strong>Fachada seleccionada:</strong> {{tipoFachadaSeleccionada}}
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Materiales Sustentables Opcionales</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>Ancho terreno</th>
+                                                    <th>Altura interior</th>
+                                                    <th>Niveles</th>
+                                                    <th>Fachadas</th>
+                                                    <th>Superficie</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Seleccionar</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let material of materialesSustentables; let i = index">
+                                                    <td>{{material.tipo}}</td>
+                                                    <td>{{material.anchoTerreno}}</td>
+                                                    <td>{{material.alturaInterior}}</td>
+                                                    <td>{{material.numNiveles}}</td>
+                                                    <td>{{material.fachadas}}</td>
+                                                    <td>{{material.superficie}} m²</td>
+                                                    <td>${{material.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="materialSustentableRadio"
+                                                                [checked]="materialSustentableSeleccionado === i"
+                                                                (change)="seleccionarMaterialSustentable(i)">
+                                                        </div>
+                                                    </td>
+                                                    <td>${{material.incluido ? (material.superficie *
+                                                        material.costoPorM2) : 0 | number:'1.2-2'}}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="8" class="text-end"><strong>Total Materiales
+                                                            Sustentables:</strong></td>
+                                                    <td><strong>${{costoTotalMaterialesSustentables |
+                                                            number:'1.2-2'}}</strong></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-align justify-content-end gap-8">
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9"
+                                (click)="previousStep()">Anterior</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
                 </div>
                 <div *ngIf="currentStep === 6">
-                    <h5>Albercas</h5>
+                    <div class="row gy-20">
+                        <h5>Albercas</h5>
+
+                        <!-- Selección de Alberca Base -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Selección de Alberca</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>Dimensiones</th>
+                                                    <th>Área</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Incluir</th>
+                                                    <th>Costo Base</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let alberca of albercas; let i = index">
+                                                    <td>{{alberca.tipo}}</td>
+                                                    <td>{{alberca.dimensiones}}</td>
+                                                    <td>{{alberca.area}} m²</td>
+                                                    <td>${{alberca.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="albercaRadio"
+                                                                [checked]="albercaSeleccionada === i"
+                                                                (change)="seleccionarAlberca(i)">
+                                                        </div>
+                                                    </td>
+                                                    <td>${{alberca.incluido ? (alberca.area * alberca.costoPorM2) : 0 |
+                                                        number:'1.2-2'}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Acabados Interiores -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Acabado Interior</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Seleccionar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let acabado of acabadosInterior; let i = index">
+                                                    <td>{{acabado.tipo}}</td>
+                                                    <td>${{acabado.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="acabadoInteriorRadio"
+                                                                [checked]="acabadoInteriorSeleccionado === i"
+                                                                (change)="seleccionarAcabadoInterior(i)">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Acabados Exteriores -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Acabado Exterior/Andador</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Seleccionar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let acabado of acabadosExterior; let i = index">
+                                                    <td>{{acabado.tipo}}</td>
+                                                    <td>${{acabado.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="acabadoExteriorRadio"
+                                                                [checked]="acabadoExteriorSeleccionado === i"
+                                                                (change)="seleccionarAcabadoExterior(i)">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sistema de Calefacción -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Sistema de Calefacción</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Seleccionar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let sistema of sistemasCalefaccion; let i = index">
+                                                    <td>{{sistema.tipo}}</td>
+                                                    <td>${{sistema.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="calefaccionRadio"
+                                                                [checked]="calefaccionSeleccionada === i"
+                                                                (change)="seleccionarCalefaccion(i)">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Total Alberca: ${{costoTotalAlbercas | number:'1.2-2'}}</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-align justify-content-end gap-8">
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9"
+                                (click)="previousStep()">Anterior</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="currentStep === 7">
+                    <div class="row gy-20">
+                        <h5>Exteriores</h5>
+
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Áreas Exteriores</h5>
+                                    <p class="text-muted mb-0">40% DE LA SUPERFICIE LIBRE DE CONSTRUCCIÓN</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>Superficie Total</th>
+                                                    <th>40% Superficie</th>
+                                                    <th>Costo por M²</th>
+                                                    <th>Seleccionar</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let area of areasExteriores; let i = index">
+                                                    <td>{{area.tipo}}</td>
+                                                    <td>{{tamanoTerrenoSeleccionado}} m²</td>
+                                                    <td>{{tamanoTerrenoSeleccionado * 0.4 | number:'1.2-2'}} m²</td>
+                                                    <td>${{area.costoPorM2 | number:'1.2-2'}}/m²</td>
+                                                    <td>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="areaExteriorRadio"
+                                                                [checked]="areaExteriorSeleccionada === i"
+                                                                (change)="seleccionarAreaExterior(i)">
+                                                        </div>
+                                                    </td>
+                                                    <td>${{area.incluido ? (tamanoTerrenoSeleccionado * 0.4 *
+                                                        area.costoPorM2) : 0 | number:'1.2-2'}}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5" class="text-end"><strong>Total Áreas
+                                                            Exteriores:</strong></td>
+                                                    <td><strong>${{costoTotalAreasExteriores | number:'1.2-2'}}</strong>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <!-- Dentro del step 7, después de la sección de áreas exteriores -->
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5>Jardinería y Paisajismo</h5>
+                                                <p class="text-muted mb-0">60% DE LA SUPERFICIE LIBRE DE CONSTRUCCIÓN
+                                                </p>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Tipo</th>
+                                                                <th>Descripción</th>
+                                                                <th>Superficie Total</th>
+                                                                <th>60% Superficie</th>
+                                                                <th>Costo por M²</th>
+                                                                <th>Seleccionar</th>
+                                                                <th>Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let jardin of jardineria; let i = index">
+                                                                <td>{{jardin.tipo}}</td>
+                                                                <td>{{jardin.descripcion}}</td>
+                                                                <td>{{jardin.tipo !== 'Árbol de laurel' ?
+                                                                    tamanoTerrenoSeleccionado : 'N/A'}} m²</td>
+                                                                <td>{{jardin.tipo !== 'Árbol de laurel' ?
+                                                                    (tamanoTerrenoSeleccionado * 0.6 | number:'1.2-2') :
+                                                                    'N/A'}} m²</td>
+                                                                <td>${{jardin.costoPorM2 | number:'1.2-2'}}{{jardin.tipo
+                                                                    === 'Árbol de laurel' ? '' : '/m²'}}</td>
+                                                                <td>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="jardineriaRadio"
+                                                                            [checked]="jardineriaSeleccionada === i"
+                                                                            (change)="seleccionarJardineria(i)">
+                                                                    </div>
+                                                                </td>
+                                                                <td>${{jardin.incluido ?
+                                                                    (jardin.tipo === 'Árbol de laurel' ?
+                                                                    jardin.costoPorM2 :
+                                                                    (tamanoTerrenoSeleccionado * 0.6 *
+                                                                    jardin.costoPorM2)) :
+                                                                    0 | number:'1.2-2'}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <td colspan="6" class="text-end"><strong>Total
+                                                                        Jardinería:</strong></td>
+                                                                <td><strong>${{costoTotalJardineria |
+                                                                        number:'1.2-2'}}</strong></td>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-align justify-content-end gap-8">
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9"
+                                (click)="previousStep()">Anterior</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="currentStep === 8">
+                    <h5>Totales del proyecto</h5>
                 </div>
             </div>
         </div>
@@ -569,11 +1044,12 @@
                             <p><strong>Precio estimado:</strong> ${{precioEstimado | number:'1.2-2'}}</p>
                             <p><strong>Subtotal M² con Factor de Area:</strong> {{subtotalArea | number:'1.2-2'}} m²</p>
                             <p><strong>Circulación / Paredes (15%):</strong> {{areaCirculacion | number:'1.2-2'}} m²</p>
-                            <p><strong>Total M² con Factor de Area:</strong> {{totalAreaConFactor | number:'1.2-2'}} m²</p>
+                            <p><strong>Total M² con Factor de Area:</strong> {{totalAreaConFactor | number:'1.2-2'}} m²
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-</div>
+    </div>
