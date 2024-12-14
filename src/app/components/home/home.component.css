@@ -1,0 +1,9 @@
+.form-select {
+    color: #212529 !important; /* color oscuro para el texto */
+    background-color: #fff !important; /* fondo blanco */
+}
+
+.form-select option {
+    color: #212529 !important;
+    background-color: #fff !important;
+}

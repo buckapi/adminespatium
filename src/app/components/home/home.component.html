@@ -1,5 +1,5 @@
 <div class="dashboard-main-wrapper">
-   
+
 
     <div class="dashboard-body">
         <div class="row gy-4">
@@ -37,97 +37,230 @@
 
         <!-- Create Course Step List Start -->
         <ul class="step-list mb-24">
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  active">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6"
+                [ngClass]="{'active': currentStep === 1}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Datos Generales
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 2}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Sección de Habitaciones y Áreas
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 3}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Complementos y Circulación
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 4}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Espacios sin Techo
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 5}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Acabados de Construcción
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 6}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Albercas
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 7}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Costos y Precios
                 <span class="line position-relative"></span>
             </li>
-            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  ">
+            <li class="step-list__item py-15 px-24 text-15 text-heading fw-medium flex-center gap-6  "
+                [ngClass]="{'active': currentStep === 8}">
                 <span class="icon text-xl d-flex"><i class="ph ph-circle"></i></span>
                 Total del Proyecto
                 <span class="line position-relative"></span>
             </li>
         </ul>
+        <div class="breadcrumb-with-buttons mb-24 flex-between flex-wrap gap-8">
+            <!-- Precio Estimado -->
+            <div class="flex-align gap-8">
+                <div class="price-estimation">
+                    <h5 class="mb-0">Precio Estimado:</h5>
+                    <div class="price-amount text-main-600 fw-bold">
+                        $ {{precioEstimado | number:'1.2-2'}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <!-- <div class="flex-align justify-content-end gap-8">
+                <button type="button" class="btn btn-outline-main bg-main-100 border-main-100 text-main-600 rounded-pill py-9">
+                    Guardar Borrador
+                </button>
+                <button type="button" class="btn btn-main rounded-pill py-9" [disabled]="!isFormValid">
+                    Finalizar Cotización
+                </button>
+            </div> -->
+        </div>
         <!-- Create Course Step List End -->
 
         <!-- Course Tab Start -->
         <div class="card">
             <div class="card-header border-bottom border-gray-100 flex-align gap-8">
-                <h5 class="mb-0">Course Details</h5>
+                <h5 class="mb-0">Detalles del Proyecto</h5>
                 <button type="button" class="text-main-600 text-md d-flex" data-bs-toggle="tooltip"
-                    data-bs-placement="top" data-bs-title="Course Details">
+                    data-bs-placement="top" data-bs-title="Detalles del Proyecto">
                     <i class="ph-fill ph-question"></i>
                 </button>
             </div>
             <div class="card-body">
-                <form action="">
+                <!-- Step 1 -->
+                <div *ngIf="currentStep === 1">
                     <div class="row gy-20">
+                        <h5 class="text-center">Datos generales</h5>
                         <!-- CLIENTE -->
-                        <div class="col-sm-6">
-                            <label for="clientName" class="h5 fw-semibold font-heading mb-0">Nombre del Cliente <span class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
-                            <input type="text" id="clientName" class="form-control py-11" placeholder="Ingrese nombre completo">
+                        <div class="col-sm-4">
+                            <label for="clientName" class="h5 fw-semibold font-heading mb-0">Nombres <span
+                                    class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
+                            <input type="text" id="clientName" class="form-control py-11"
+                                placeholder="Ingrese nombre completo">
                         </div>
-                        <div class="col-sm-6">
-                            <label for="clientContact" class="h5 fw-semibold font-heading mb-0">Información de Contacto <span class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
-                            <input type="text" id="clientContact" class="form-control py-11" placeholder="Correo o teléfono">
+                        <div class="col-sm-4">
+                            <label for="email" class="h5 fw-semibold font-heading mb-0">Correo <span
+                                    class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
+                            <input type="email" id="email" class="form-control py-11" placeholder="Correo">
                         </div>
-                    
+                        <div class="col-sm-4">
+                            <label for="phone" class="h5 fw-semibold font-heading mb-0">Teléfono <span
+                                    class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
+                            <input type="number" id="phone" class="form-control py-11" placeholder="Teléfono">
+                        </div>
+
                         <!-- DIRECCIÓN -->
                         <div class="col-sm-6">
-                            <label for="projectAddress" class="h5 fw-semibold font-heading mb-0">Dirección del Proyecto <span class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
-                            <input type="text" id="projectAddress" class="form-control py-11" placeholder="Ingrese la dirección">
+                            <label for="courseCategory" class="h5 mb-8 fw-semibold font-heading">Seleccione una
+                                Ciudad </label>
+                            <div class="position-relative">
+                                <select id="courseCategory" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onCiudadChange($event)">
+                                    <option value="" disabled selected>Seleccione una Ciudad</option>
+                                    <option *ngFor="let ciudad of realtimeciudad.ciudades$ | async"
+                                        value="{{ciudad.id}}">{{ciudad.ciudades}}</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-sm-6">
-                            <label for="projectCity" class="h5 fw-semibold font-heading mb-0">Ciudad y Estado <span class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
-                            <input type="text" id="projectCity" class="form-control py-11" placeholder="Ciudad y estado/provincia">
+                            <label for="projectAddress" class="h5 fw-semibold font-heading mb-0">Dirección completa
+                                <span class="text-13 text-gray-400 fw-medium">(Requerido)</span></label>
+                            <input type="text" id="projectAddress" class="form-control py-11"
+                                placeholder="Ingrese la dirección">
                         </div>
-                    
-                        <!-- THUMBNAIL IMAGEN -->
-                       <!--  <div class="col-xxl-3 col-md-4 col-sm-5">
-                            <div class="mb-20">
-                                <label class="h5 fw-semibold font-heading mb-0">Imagen Miniatura del Proyecto <span class="text-13 text-gray-400 fw-medium">(Opcional)</span></label>
-                            </div>
-                            <div id="fileUpload" class="fileUpload image-upload"></div>
-                        </div> -->
+
+
+
                         <div class="flex-align justify-content-end gap-8">
-                            <a  class="btn btn-outline-main rounded-pill py-9">Cancel</a>
-                            <a  class="btn btn-main rounded-pill py-9">Continue</a>
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9">Cancelar</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Continuar</button>
                         </div>
                     </div>
-                    
-                </form>
+                </div>
+
+                <!-- Step 2 -->
+                <div *ngIf="currentStep === 2">
+                    <div class="row gy-20">
+                        <h5 class="text-center">Sección de Habitaciones y Áreas</h5>
+
+                        <!-- Altura Interior -->
+                        <div class="col-sm-6">
+                            <label for="alturaInterior" class="h5 mb-8 fw-semibold font-heading">Altura Interior
+                                Entrepiso</label>
+                            <div class="position-relative">
+                                <select id="alturaInterior" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onAlturaChange($event)">
+                                    <option value="" disabled selected>Seleccione la altura</option>
+                                    <option value="2.40">2.40 metros (Media)</option>
+                                    <option value="2.60">2.60 metros (Semi Lujo)</option>
+                                    <option value="2.80">2.80 metros (Residencial)</option>
+                                    <option value="3.00">3.00 metros (Residencial Plus)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Tamaño del Terreno -->
+                        <div class="col-sm-6">
+                            <label for="tamanoTerreno" class="h5 mb-8 fw-semibold font-heading">Tamaño del
+                                Terreno</label>
+                            <div class="position-relative">
+                                <select id="tamanoTerreno" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onTamanoTerrenoChange($event)">
+                                    <option value="" disabled selected>Seleccione el tamaño</option>
+                                    <option value="100">100-150 m²</option>
+                                    <option value="150">150-200 m²</option>
+                                    <option value="200">200-250 m²</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Puerta de Acceso -->
+                        <div class="col-sm-6">
+                            <label for="puertaAcceso" class="h5 mb-8 fw-semibold font-heading">Puerta de Acceso</label>
+                            <div class="position-relative">
+                                <select id="puertaAcceso" class="form-select py-9 placeholder-13 text-15"
+                                    (change)="onPuertaChange($event)">
+                                    <option value="" disabled selected>Seleccione tipo de puerta</option>
+                                    <option *ngFor="let puerta of opcionesPuertas" [value]="puerta.valor">
+                                        {{puerta.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="flex-align justify-content-end gap-8">
+                            <button type="button" class="btn btn-outline-main rounded-pill py-9"
+                                (click)="previousStep()">Anterior</button>
+                            <button type="button" class="btn btn-main rounded-pill py-9"
+                                (click)="nextStep()">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Course Tab End -->
+
+        <!-- Botón para mostrar/ocultar -->
+        <button class="btn btn-outline-main rounded-pill py-9 mb-3" (click)="mostrarResultados = !mostrarResultados">
+            {{ mostrarResultados ? 'Ocultar Resultados' : 'Mostrar Resultados' }}
+            <i class="ph" [ngClass]="mostrarResultados ? 'ph-caret-up' : 'ph-caret-down'"></i>
+        </button>
+
+        <!-- Card con los resultados -->
+        <div class="col-12" *ngIf="mostrarResultados">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="mb-3">Resultados del cálculo:</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Ciudad seleccionada:</strong> {{ciudadSeleccionada}}</p>
+                            <p><strong>Tamaño total del terreno:</strong> {{tamanoTerrenoSeleccionado}} m²</p>
+                            <p><strong>Área construible (COS 50%):</strong> {{areaConstructible}} m²</p>
+                            <p><strong>Tipo de puerta:</strong> {{tipoPuertaAcceso}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Área libre:</strong> {{areaLibre}} m²</p>
+                            <p><strong>Factor de costo por ciudad:</strong> ${{factorCostoCiudad}}</p>
+                            <p><strong>Precio estimado:</strong> ${{precioEstimado | number:'1.2-2'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
