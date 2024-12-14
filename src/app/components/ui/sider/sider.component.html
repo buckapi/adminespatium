@@ -6,7 +6,7 @@
                 class="ph ph-x"></i></button>
         <!-- sidebar close btn -->
 
-        <a (click)="global.setRoute('')"
+        <a 
             class="sidebar__logo text-center p-20 position-sticky inset-block-start-0 bg-white w-100 z-1 pb-10">
             <img src="assets/images/logo/logo.png" alt="Logo">
         </a>
@@ -21,74 +21,43 @@
                         </a>
                     </li>
                     <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
-                        <a (click)="global.setRoute('homedash')" class="sidebar-menu__link">
+                        <a (click)="global.setRoute('homedash')" class="sidebar-menu__link" style="cursor: pointer;">
                             <span class="icon"><i class="ph ph-house"></i></span>
                             <span class="text">Inicio</span>
                         </a>
                     </li>
                     <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
-                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link">
+                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link" style="cursor: pointer;">
                             <span class="icon"><i class="ph ph-books"></i></span>
                             <span class="text">Proyectos</span>
                         </a>
                     </li>
                     <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
-                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link">
+                        <a (click)="global.setRoute('service')" class="sidebar-menu__link" style="cursor: pointer;">
                             <span class="icon"><i class="ph ph-bookmarks"></i></span>
                             <span class="text">Servicios</span>
                         </a>
                     </li>
                     <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
-                        <a (click)="global.setRoute('projects')" class="sidebar-menu__link">
+                        <a (click)="global.setRoute('resources')" class="sidebar-menu__link" style="cursor: pointer;">
                             <span class="icon"><i class="ph ph-plus"></i></span>
                             <span class="text">Recursos</span>
                         </a>
                     </li>
+                    <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
+                        <a (click)="global.setRoute('quotes')" class="sidebar-menu__link" style="cursor: pointer;">
+                            <span class="icon"><i class="ph ph-question"></i></span>
+                            <span class="text">Cotizaciones</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu__item" *ngIf="this.auth.getCurrentUser() && this.auth.getCurrentUser()?.type !== 'admin'">
+                        <a (click)="global.setRoute('settings')" class="sidebar-menu__link" style="cursor: pointer;">
+                            <span class="icon"><i class="ph ph-calculator"></i></span>
+                            <span class="text">Ajustes de calculadora</span>
+                        </a>
+                    </li>
 
-                    <!-- 
-                    
-                    <li class="sidebar-menu__item">
-                        <a href="mentors.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-users"></i></span>
-                            <span class="text">Mentors</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu__item">
-                        <a href="resources.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-bookmarks"></i></span>
-                            <span class="text">Resources</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu__item">
-                        <a href="message.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-chats-teardrop"></i></span>
-                            <span class="text">Messages</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu__item">
-                        <a href="analytics.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-chart-bar"></i></span>
-                            <span class="text">Analytics</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu__item">
-                        <a href="event.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-calendar-dots"></i></span>
-                            <span class="text">Events</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu__item">
-                        <a href="library.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-books"></i></span>
-                            <span class="text">Library</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-menu__item">
-                        <a href="pricing-plan.html" class="sidebar-menu__link">
-                            <span class="icon"><i class="ph ph-coins"></i></span>
-                            <span class="text">Pricing</span>
-                        </a>
-                    </li> -->
+
 
                     
                 </ul>

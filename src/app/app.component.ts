@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { GlobalService } from './services/global.service';
@@ -11,23 +11,31 @@ import { LoginComponent } from './components/login/login.component';
 import { HomedashComponent } from './components/homedash/homedash.component';
 import { AuthPocketbaseService } from './services/auth-pocketbase.service';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { HttpClientModule } from '@angular/common/http';
+import { QuotesComponent } from './components/quotes/quotes.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { ResourcesComponent } from './components/resources/resources.component';
+import { ServiceComponent } from './components/service/service.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,
+  imports: [
     CommonModule,
+    RouterOutlet,
     HomeComponent,
     SiderComponent,
     TopNavbarComponent,
     LoginComponent,
     HomedashComponent,
     ProjectsComponent,
-    HttpClientModule
+    QuotesComponent,
+    SettingsComponent,
+    ResourcesComponent,
+    ServiceComponent
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {
   title = 'adminspatium';
@@ -36,9 +44,10 @@ export class AppComponent {
     public global: GlobalService,
     public loadStyle: LoadStyleService,
     public scriptLoader: ScriptLoaderService,
-    public auth:AuthPocketbaseService
-  
-  ) { this.auth.permision();}
+    public auth: AuthPocketbaseService
+  ) { 
+    this.auth.permision();
+  }
   ngOnInit(): void {
     this.theme();
 

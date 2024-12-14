@@ -11,5 +11,6 @@ import { AuthPocketbaseService } from '../../services/auth-pocketbase.service';
   styleUrl: './homedash.component.css'
 })
 export class HomedashComponent {
-constructor(public global: GlobalService, public auth: AuthPocketbaseService){}
+constructor(public global: GlobalService, 
+  public auth: AuthPocketbaseService){}
 }

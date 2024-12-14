@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { RealtimeCiudadesService } from '../../services/realtime-ciudades.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthPocketbaseService } from '../../services/auth-pocketbase.service';
+import { DataApiService } from '../../services/data-api.service';
 interface Area {
   local: string;
   area: number;
@@ -598,7 +600,10 @@ export class HomeComponent {
 
 constructor(public global: GlobalService,
   private http: HttpClient,
-  public realtimeciudad: RealtimeCiudadesService
+  public realtimeciudad: RealtimeCiudadesService,
+  public auth: AuthPocketbaseService,
+  public dataApi: DataApiService,
+  public pb: AuthPocketbaseService,
 ){
   this.realtimeciudad.ciudades$.subscribe((res: any) => {
     console.log(res);
