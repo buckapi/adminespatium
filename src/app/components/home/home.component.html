@@ -1,5 +1,6 @@
 <!-- <div class="dashboard-main-wrapper">
- -->    <div class="">
+ -->
+<div class="">
 
 
     <div class="dashboard-body">
@@ -141,7 +142,7 @@
                                 <select id="courseCategory" class="form-select py-9 placeholder-13 text-15"
                                     (change)="onCiudadChange($event)">
                                     <option value="" disabled selected>Seleccione una Ciudad</option>
-                                    <option *ngFor="let ciudad of realtimeciudad.ciudades$ | async"
+                                    <option *ngFor="let ciudad of (realtimeciudad.ciudades$ | async | sort:'ciudades')"
                                         value="{{ciudad.id}}">{{ciudad.ciudades}}</option>
                                 </select>
                             </div>

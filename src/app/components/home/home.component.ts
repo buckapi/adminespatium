@@ -6,6 +6,25 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthPocketbaseService } from '../../services/auth-pocketbase.service';
 import { DataApiService } from '../../services/data-api.service';
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'sort',
+  standalone: true
+})
+export class SortPipe implements PipeTransform {
+  transform(array: any[] | null, field: string): any[] {
+    if (!array) {
+      return [];
+    }
+    return [...array].sort((a: any, b: any) => {
+      if (a[field].toLowerCase() < b[field].toLowerCase()) return -1;
+      if (a[field].toLowerCase() > b[field].toLowerCase()) return 1;
+      return 0;
+    });
+  }
+}
+
 interface Area {
   local: string;
   area: number;
@@ -123,7 +142,7 @@ interface Jardineria {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, SortPipe],
 templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -157,6 +176,7 @@ export class HomeComponent {
   acabadoInteriorSeleccionado: number | null = null;
   acabadoExteriorSeleccionado: number | null = null;
   calefaccionSeleccionada: number | null = null;
+  ciudades: any[] = [];
 
   tiposConstruccion = ['Media', 'Semi Lujo', 'Residencial', 'Residencial Plus'];
   areas: Area[] = [

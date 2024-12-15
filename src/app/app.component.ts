@@ -15,7 +15,7 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { ServiceComponent } from './components/service/service.component';
-
+import { SortPipe } from './components/home/home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -31,7 +31,11 @@ import { ServiceComponent } from './components/service/service.component';
     QuotesComponent,
     SettingsComponent,
     ResourcesComponent,
-    ServiceComponent
+    ServiceComponent,
+    
+  ],
+  providers: [
+    SortPipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
