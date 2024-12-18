@@ -7,6 +7,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthPocketbaseService } from '../../services/auth-pocketbase.service';
 import { DataApiService } from '../../services/data-api.service';
 import { Pipe, PipeTransform } from '@angular/core';
+import { RealtimeTamañosService } from '../../services/realtime-tamaños.service';
+import { RealtimeTypeConstructorsService } from '../../services/realtime-typeConstructor.service';
 
 @Pipe({
   name: 'sort',
@@ -177,6 +179,7 @@ export class HomeComponent {
   acabadoExteriorSeleccionado: number | null = null;
   calefaccionSeleccionada: number | null = null;
   ciudades: any[] = [];
+  tamaños: any[] = [];
 
   tiposConstruccion = ['Media', 'Semi Lujo', 'Residencial', 'Residencial Plus'];
   areas: Area[] = [
@@ -624,8 +627,18 @@ constructor(public global: GlobalService,
   public auth: AuthPocketbaseService,
   public dataApi: DataApiService,
   public pb: AuthPocketbaseService,
+  public realtimeTamaños: RealtimeTamañosService,
+  public realtimeTypeConstructors: RealtimeTypeConstructorsService
 ){
   this.realtimeciudad.ciudades$.subscribe((res: any) => {
+    console.log(res);
+  });
+
+  this.realtimeTamaños.tamaños$.subscribe((res: any) => {
+    console.log(res);
+  });
+
+  this.realtimeTypeConstructors.typeConstructors$.subscribe((res: any) => {
     console.log(res);
   });
 
